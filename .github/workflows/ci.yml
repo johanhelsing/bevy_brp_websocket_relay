@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+name: ci
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: System dependencies
+        run: sudo apt-get install libwayland-dev libasound2-dev libudev-dev
+      - run: cargo check --all-targets
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: System dependencies
+        run: sudo apt-get install libwayland-dev libasound2-dev libudev-dev
+      - run: cargo test
+
+  lints:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: System dependencies
+        run: sudo apt-get install libwayland-dev libasound2-dev libudev-dev
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy -- -D warnings
