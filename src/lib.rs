@@ -12,7 +12,6 @@
 //! ```
 
 use bevy_app::prelude::*;
-use bevy_ecs::prelude::*;
 use bevy_log::prelude::*;
 
 /// Default WebSocket path for the relay endpoint.
