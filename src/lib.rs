@@ -78,10 +78,7 @@ mod wasm {
         pub path: String,
     }
 
-    pub(crate) fn start_websocket_relay(
-        brp_sender: Res<BrpSender>,
-        config: Res<RelayConfig>,
-    ) {
+    pub(crate) fn start_websocket_relay(brp_sender: Res<BrpSender>, config: Res<RelayConfig>) {
         let url = config.url.clone().unwrap_or_else(|| {
             let window = web_sys::window().expect("no global window");
             let location = window.location();
