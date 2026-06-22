@@ -111,4 +111,5 @@ Watch requests (`+watch` methods) are supported — multiple responses stream ba
 
 | bevy | bevy_brp_websocket_relay |
 |------|--------------------------|
+| 0.19 | 0.2                      |
 | 0.18 | 0.1                      |
