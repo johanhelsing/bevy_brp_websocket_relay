@@ -326,7 +326,7 @@ dependencies = [
 
 [[package]]
 name = "bevy_brp_websocket_relay"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "async-channel",
  "bevy_app",
