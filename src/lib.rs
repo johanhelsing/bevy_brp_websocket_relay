@@ -13,6 +13,7 @@
 
 use bevy_app::prelude::*;
 use bevy_ecs::prelude::*;
+#[cfg(not(target_arch = "wasm32"))]
 use bevy_log::prelude::*;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
